@@ -1,21 +1,21 @@
-# Outlier Detection using Z-Score (Placement Dataset)
+# Outlier Detection & Handling using Statistical Method (Z-Score Approach)
 
 ## 📌 Project Overview
 
-This project demonstrates how to detect and remove outliers from a dataset using the Z-Score statistical method.
-The goal of this project is to understand how statistical techniques can be used in data preprocessing before applying Machine Learning models.
-The dataset used in this project is a placement dataset (`placement.csv`).
+This project demonstrates how to detect and handle outliers using statistical techniques on a placement dataset.
+Instead of only identifying outliers, this project explores multiple strategies to handle extreme values and prepare the dataset for Machine Learning tasks.
 
 ---
 
-## 🧠 What is Z-Score?
+## 🧠 Statistical Approach Used
 
-Z-Score measures how many standard deviations a data point is away from the mean.
+Outliers were detected using the 3-sigma rule:
 
-Formula:
+Upper Limit = Mean + 3 × Standard Deviation  
+Lower Limit = Mean - 3 × Standard Deviation  
 
-Z = (X - Mean) / Standard Deviation
-If the absolute value of Z is greater than a chosen threshold (commonly 3), the data point is considered an outlier.
+Any data point outside this range was considered an outlier.
+This approach is mathematically equivalent to using a Z-score threshold of ±3.
 
 ---
 
@@ -24,7 +24,7 @@ If the absolute value of Z is greater than a chosen threshold (commonly 3), the 
 - Python
 - NumPy
 - Pandas
-- Matplotlib 
+- Matplotlib
 
 ---
 
@@ -35,45 +35,53 @@ The project follows these steps:
 1. Importing required libraries
 2. Loading the placement dataset
 3. Calculating mean and standard deviation
-4. Identifying outliers using a threshold
-5. Removing outliers from the dataset
-6. Comparing dataset before and after cleaning
+4. Defining upper and lower boundaries using 3-sigma rule
+5. Detecting outliers outside the defined range
+6. Applying two outlier handling techniques:
+   - Trimming (removing extreme values)
+   - Capping (replacing extreme values with boundary limits)
+7. Comparing dataset before and after preprocessing
 
 ---
 
-## 📊 Results
+## 🛠 Outlier Handling Techniques Implemented
 
-- Outliers were successfully identified using Z-score method.
-- The dataset was cleaned by removing extreme values.
-- The cleaned dataset is more suitable for further Machine Learning tasks.
+### 1️⃣ Trimming
+All values outside the defined range were removed from the dataset.
+
+✔ Reduces dataset size  
+✔ Removes extreme influence completely  
+
+### 2️⃣ Capping
+Extreme values were replaced with the upper or lower boundary limit.
+
+✔ Preserves dataset size  
+✔ Reduces extreme value impact  
 
 ---
 
-## 📈 Why Outlier Removal is Important?
+## 📊 Key Learnings
 
-Outliers can:
-- Distort statistical analysis
-- Affect model accuracy
-- Bias distance-based algorithms
-- Impact mean and variance
-
-Proper preprocessing improves model reliability and performance.
+- How to detect outliers using statistical boundaries
+- Practical difference between trimming and capping
+- Impact of extreme values on dataset distribution
+- Importance of preprocessing before applying ML models
 
 ---
 
 ## 🚀 Future Improvements
 
-- Compare Z-Score method with IQR method
-- Visualize outliers using boxplots
-- Apply Machine Learning model before and after outlier removal
-- Automate outlier detection for multiple columns
+- Compare Z-score method with IQR method
+- Visualize distribution before and after handling
+- Train ML model before and after outlier handling
+- Automate preprocessing for multiple numerical features
 
 ---
 
 ## 👨‍💻 Author
 Ishaan Sharma  
 B.Tech – Artificial Intelligence & Machine Learning  
-Currently building practical ML and data preprocessing projects.
+Focused on building strong fundamentals in Data Preprocessing and Machine Learning workflows.
 Ishaan Sharma  
 B.Tech – Artificial Intelligence & Machine Learning  
-Currently building practical ML and data preprocessing projects.
+Focused on building strong fundamentals in Data Preprocessing and Machine Learning workflows.
