@@ -1,87 +1,79 @@
-# Outlier Detection & Handling using Statistical Method (Z-Score Approach)
+# Outlier Detection and Treatment in Machine Learning
 
-## 📌 Project Overview
-
-This project demonstrates how to detect and handle outliers using statistical techniques on a placement dataset.
-Instead of only identifying outliers, this project explores multiple strategies to handle extreme values and prepare the dataset for Machine Learning tasks.
-
----
-
-## 🧠 Statistical Approach Used
-
-Outliers were detected using the 3-sigma rule:
-
-Upper Limit = Mean + 3 × Standard Deviation  
-Lower Limit = Mean - 3 × Standard Deviation  
-
-Any data point outside this range was considered an outlier.
-This approach is mathematically equivalent to using a Z-score threshold of ±3.
+## 📌 Overview
+This repository demonstrates practical implementation of statistical techniques used to detect and handle outliers in datasets.
+Outlier treatment is a crucial preprocessing step in Machine Learning as extreme values can significantly affect model performance.
 
 ---
 
-## ⚙️ Technologies Used
+## 📊 Techniques Implemented
 
+### 1️⃣ IQR (Interquartile Range) Method
+- Based on 25th and 75th percentiles
+- Detects outliers using:
+  
+  Upper Limit = Q3 + 1.5 × IQR  
+  Lower Limit = Q1 − 1.5 × IQR
+
+- Demonstrates:
+  - Outlier detection
+  - Trimming
+  - Capping
+
+---
+
+### 2️⃣ Percentile Method (Winsorization)
+- Uses 1st and 99th percentile
+- Effective for large datasets
+- Demonstrates:
+  - Extreme value filtering
+  - Winsorization technique
+
+---
+
+### 3️⃣ Z-Score Method
+- Based on standard normal distribution
+- Formula:
+
+  Z = (X − μ) / σ
+
+- Uses ±3 standard deviation rule
+- Applied only on normally distributed features
+
+---
+
+## 🛠 Technologies Used
 - Python
 - NumPy
 - Pandas
 - Matplotlib
+- Seaborn
 
 ---
 
-## 🔄 Workflow
-
-The project follows these steps:
-
-1. Importing required libraries
-2. Loading the placement dataset
-3. Calculating mean and standard deviation
-4. Defining upper and lower boundaries using 3-sigma rule
-5. Detecting outliers outside the defined range
-6. Applying two outlier handling techniques:
-   - Trimming (removing extreme values)
-   - Capping (replacing extreme values with boundary limits)
-7. Comparing dataset before and after preprocessing
+## 📁 Datasets Used
+- placement.csv
+- weight-height.csv
 
 ---
 
-## 🛠 Outlier Handling Techniques Implemented
-
-### 1️⃣ Trimming
-All values outside the defined range were removed from the dataset.
-
-✔ Reduces dataset size  
-✔ Removes extreme influence completely  
-
-### 2️⃣ Capping
-Extreme values were replaced with the upper or lower boundary limit.
-
-✔ Preserves dataset size  
-✔ Reduces extreme value impact  
-
----
-
-## 📊 Key Learnings
-
-- How to detect outliers using statistical boundaries
-- Practical difference between trimming and capping
-- Impact of extreme values on dataset distribution
-- Importance of preprocessing before applying ML models
+## 🎯 Key Learning Outcomes
+- When to use IQR vs Z-score
+- Importance of checking distribution before applying statistical methods
+- Difference between trimming and capping
+- Practical implementation of winsorization
 
 ---
 
 ## 🚀 Future Improvements
-
-- Compare Z-score method with IQR method
-- Visualize distribution before and after handling
-- Train ML model before and after outlier handling
-- Automate preprocessing for multiple numerical features
+- Implement robust scaling comparison
+- Compare model performance before and after outlier treatment
+- Convert code into reusable functions
 
 ---
 
 ## 👨‍💻 Author
-Ishaan Sharma  
-B.Tech – Artificial Intelligence & Machine Learning  
-Focused on building strong fundamentals in Data Preprocessing and Machine Learning workflows.
-Ishaan Sharma  
-B.Tech – Artificial Intelligence & Machine Learning  
-Focused on building strong fundamentals in Data Preprocessing and Machine Learning workflows.
+B.Tech AIML Student | Learning Machine Learning Foundations
+
+## 👨‍💻 Author
+B.Tech AIML Student | Learning Machine Learning Foundations
